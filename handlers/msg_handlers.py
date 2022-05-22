@@ -9,7 +9,7 @@ async def greeting(message: types.Message):
 
 
 @dp.message_handler(commands=['anecdote'])
-async def greeting(message: types.Message):
+async def anec(message: types.Message):
     await message.delete()
     await message.answer(anek.get_anek())
 
@@ -17,4 +17,4 @@ async def greeting(message: types.Message):
 @dp.message_handler()
 async def echo(message: types.Message):
     print(message.text)
-    await message.answer("я еще маленький бот, не умею грамотно отвечать, но могу /anecdote вкинуть)")
+    await message.answer("я еще маленький бот, не умею говорить, но я передам твои слова создателю, надеюсь они не злые")
