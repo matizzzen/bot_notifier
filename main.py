@@ -18,11 +18,7 @@ async def scheduled():
 
         if now in cfg.time1:
             for user in cfg.user:
-                await bot.send_message(user, f"пилюля")
-
-        if now in cfg.time2:
-            for user in cfg.user:
-                await bot.send_message(user, f"таблетка")
+                await bot.send_message(user, "Советую подправить здоровье таблетосом")
         await asyncio.sleep(60)
 
 
