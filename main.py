@@ -16,9 +16,16 @@ async def scheduled():
         now = datetime.now().strftime("%H:%M")
         print(now)
 
-        if now in cfg.time1:
+        if now in cfg.time:
+            with open('iterator.txt', 'r') as counter:
+                iterator = int(counter.readline()[0])
+            with open('iterator.txt', 'w') as counter:
+                counter.write(str(iterator + 1))
+            with open('reply.txt', encoding='utf-8') as reply:
+                replies = reply.readlines()
+                answer = replies[iterator]
             for user in cfg.user:
-                await bot.send_message(user, "Советую подправить здоровье таблетосом")
+                await bot.send_message(user, answer)
         await asyncio.sleep(60)
 
 
