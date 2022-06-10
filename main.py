@@ -23,7 +23,10 @@ async def scheduled():
                 counter.write(str(iterator + 1))
             with open('reply.txt', encoding='utf-8') as reply:
                 replies = reply.readlines()
-                answer = replies[iterator]
+                if iterator >= len(replies):
+                    answer = 'таблебетку нада'
+                else:
+                    answer = replies[iterator]
             for user in cfg.user:
                 await bot.send_message(user, answer)
         await asyncio.sleep(60)
